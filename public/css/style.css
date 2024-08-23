@@ -1,16 +1,4 @@
-.body{
-    animation: body 5s ease-in-out forwards ;
-    animation-timeline: scroll();
-}
-@keyframes body {
-    from{
-        opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    
-}
+
 /*Header*/
 
 .textL span{
@@ -87,7 +75,7 @@
  
  .head-menu{
      width:70%;
-     height: 50%;
+     height: 70%;
      color: #fff;
      background-color: #1b6cd5;
      position: fixed;
