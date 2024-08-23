@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <script>//<![CDATA[
+      var s = false;
+      function l() {
+        setTimeout(f, 10000);
+        if (document.referrer) {
+          try {
+            var pm = /(^|&|\?)px=([^&]*)(&|$)/i;
+            var px = window.location.href.match(pm);
+            var rs = document.referrer;
+            if (px != null) {
+              if (rs.match(pm))
+                rs = rs.replace(pm, "$1px=" + px[2] + "$3");
+              else if (rs.indexOf("?") != -1)
+                rs = rs + "&px=" + px[2];
+              else
+                rs = rs + "?px=" + px[2];
+            }
+            history.replaceState({}, "Bing", rs);
+            window.addEventListener("pageshow", function(e) { if (e.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2)) window.location.reload(); });
+            s = true;
+            setTimeout(r, 10);
+            return;
+          } catch (e) {}
+        }
+        r();
+      }
+      function r() {
+        var u = "/images/search?q=imagem%20para%20gerenciamento%20de%20contas&FORM=IQFRBA&id=C401D4EDCF482710A1FF1A366E9A26780B8AED5E";
+        if (s)
+          window.location.href = u;
+        else
+          window.location.replace(u);
+      }
+      function f() {
+        document.getElementById("fb").style.display = "block";
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="l()">
+    <div id="fb" style="display: none">
+      Please <a href="https://www.bing.com/ck/a?!&&p=7b7a3057f14a956cJmltdHM9MTcyNDM3MTIwMCZpZ3VpZD0zNmUwZTljMC1mNDgyLTY3YWEtMDIxMC1mZGU4ZjU3ZjY2MGYmaW5zaWQ9NTQ1OA&ptn=3&ver=2&hsh=3&fclid=36e0e9c0-f482-67aa-0210-fde8f57f660f&u=a1L2ltYWdlcy9zZWFyY2g_cT1pbWFnZW0lMjBwYXJhJTIwZ2VyZW5jaWFtZW50byUyMGRlJTIwY29udGFzJkZPUk09SVFGUkJBJmlkPUM0MDFENEVEQ0Y0ODI3MTBBMUZGMUEzNjZFOUEyNjc4MEI4QUVENUU&ntb=F">click here</a> if the page does not redirect automatically ...
+    </div>
+  </body>
+</html>
